@@ -1,0 +1,75 @@
+<html>
+   
+  <body>
+       
+    <h1>Connected as user $<span id="userId"></span></h1>
+       
+    <div>
+           
+      <p>Latest events:</p>
+           
+      <table>
+               
+        <thead>
+                   
+          <tr>
+            <td>Operation</td>
+            <td>Document Key</td>
+            <td>Full Document</td>
+          </tr>
+                 
+        </thead>
+               
+        <tbody id="tableBody"></tbody>
+             
+      </table>
+         
+    </div>
+     <button id="postdata">post data</button>
+  </body>
+
+   <!-- Import the Realm Web SDK -->
+   
+  <script src="https://unpkg.com/realm-web/dist/bundle.iife.js"></script>
+
+   
+  <script>
+    let button_to_post = document.querySelector("#postdata");
+
+    const main = async () => {
+      //Create the application
+      const app = new Realm.App({ id: "appllication-01-brmct" }); // Authenticate anonymously
+
+      const user = await app.logIn(Realm.Credentials.anonymous());
+      document.querySelector("#userId").textContent = user.id; // Connect to the database
+
+      const mongodb = app.currentUser.mongoClient("mongodb-atlas");
+      const collection = mongodb.db("realestate").collection("propertise"); // Everytime a change happens in the stream, add it to the list of events
+
+      const result = await user.functions.getAllPositions();
+      console.log(result);
+
+      button_to_post.addEventListener("click", async () => {
+        let data = { test: "this is a test" };
+        const result_of_post = await user.functions.PostData(data);
+        console.log(result_of_post);
+      });
+
+      for await (const change of collection.watch()) {
+        let operationCell = document.createElement("td");
+        operationCell.textContent = change.operationType;
+        let keyCell = document.createElement("td");
+        keyCell.textContent = change.documentKey._id.toString();
+        let fullDocumentCell = document.createElement("td");
+        fullDocumentCell.textContent = JSON.stringify(change.fullDocument);
+        let eventRow = document.createElement("tr");
+        eventRow.appendChild(operationCell);
+        eventRow.appendChild(keyCell);
+        eventRow.appendChild(fullDocumentCell);
+        let tableBody = document.querySelector("#tableBody");
+        tableBody.appendChild(eventRow);
+      }
+    };
+    main();
+  </script>
+</html>

@@ -1,0 +1,22 @@
+@font-face {
+  font-family: lexend;
+  src: url(https://cdn.glitch.com/42d5484f-82a4-45ad-b9b8-e7f472002937%2FLexendDeca-Regular.ttf?v=1618275614041);
+}
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+  font-weight: 400;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+#map {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+}
