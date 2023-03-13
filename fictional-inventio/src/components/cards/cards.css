@@ -1,0 +1,11 @@
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: #31572c;
+  color: #e6f9f8;
+}
+.nav-link {
+  color: black;
+}
+.keepRight {
+  float: right;
+}

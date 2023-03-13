@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
+body {
+  font-family: "Poppins", sans-serif;
+}
+#collasible-nav-dropdown {
+  color: #3a5a40;
+}
+.posLeft {
+  margin-left: auto;
+}
+.outline {
+  border: none;
+}
+.outline:focus {
+  box-shadow: 2px 2px 5px#dad7cd;
+  transform: scale(1.01);
+}
+.boxShadow {
+  box-shadow: 0px 0px 5px 1px #f0edd1;
+  border-radius: 7px;
+}
+.outlineinput {
+  border: 1px solid #3a5a40;
+}
+.outlineinput:focus {
+  box-shadow: 0px 0px 5px 5px #f0edd1;
+}
+::-webkit-scrollbar {
+  width: 0.5em;
+}
+::-webkit-scrollbar-track {
+  background-color: #fff;
+  margin-block: 0.5em;
+  border-radius: 100vw;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #3a5a40;
+  border-radius: 100vw;
+}
+
+@supports (scrollbar-color: red blue) {
+  * {
+    scrollbar-color: #3a5a40 #fff;
+    scrollbar-width: thin;
+  }
+}
+.form-check-input:active {
+  background-color: #3a5a40;
+  border-color: hsl(131, 13%, 41%);
+}
+.form-check-input:focus {
+  border-color: hsl(131, 13%, 41%);
+  box-shadow: 0 0 0 0.25rem rgb(131 110 253 / 25%);
+}
+.form-check-input:checked {
+  background-color: #3a5a40;
+}
+.form-select:focus {
+  border-color: #f0edd1;
+  box-shadow: 0 0 0.25rem rgb(11, 59, 20);
+}
+.btn-primary:focus {
+  background-color: red;
+  box-shadow: 0 0 0 0.15rem hsla(131, 22%, 29%, 40%);
+}

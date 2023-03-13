@@ -1,0 +1,30 @@
+.kiu {
+  height: 100vh;
+  display: flexbox;
+  flex-direction: row;
+  /* justify-content: baseline; */
+  align-items: stretch;
+}
+.column-2 {
+  background-color: hsl(200, 72%, 42%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: scroll;
+  height: 100vh;
+}
+.column-1 {
+  background-color: hsl(200, 50%, 50%);
+}
+.column-2 > div {
+  display: inline;
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding: 20px;
+  font-size: 60px;
+  width: 5em;
+  height: 5em;
+}
+/* * {
+  color: hsl(50, 50%, 50%);
+} */
