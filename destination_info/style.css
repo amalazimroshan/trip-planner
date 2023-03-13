@@ -1,0 +1,22 @@
+.map {
+  width: calc(100% - 1em);
+  border-radius: 10px;
+  border: 1px solid #343434;
+  height: 70vh;
+  margin: 1em auto;
+}
+.destination_list_container {
+  background-color: aqua;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: row;
+
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  gap: 0.4em;
+}
+.card {
+  min-width: calc(100% - 2em);
+  scroll-snap-align: center;
+  padding: 0.2em;
+}

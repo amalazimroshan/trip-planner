@@ -14,6 +14,7 @@
         display: flex;
         flex-direction: row;
         scroll-snap-type: x mandatory;
+        margin-top: 3em;
       }
       div {
         position: relative;
@@ -22,6 +23,10 @@
         scroll-snap-align: center;
         margin-right: 0.4em;
         min-width: calc(100% - 30px);
+        margin-top: 2em;
+      }
+      div[focus="true"] {
+        background-color: aquamarine;
       }
     </style>
   </head>
@@ -32,7 +37,7 @@
       <div value="3">div 3</div>
       <div value="4">div 4</div>
       <div value="5">div 5</div>
-      <div id="box" value="6">div 6</div>
+      <div value="6">div 6</div>
       <div value="7">div 7</div>
       <div value="8">div 8</div>
       <div value="9">div 9</div>
@@ -49,9 +54,10 @@
       const observer = new IntersectionObserver(callback, options);
       function callback(entries) {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            console.log(entry.target.textContent);
-          }
+          const intersecting = entry.isIntersecting;
+          // entry.target.style.backgroundColor = intersecting ? "blue" : "orange";
+          entry.target.setAttribute("focus", intersecting ? true : false);
+          entry.target.at;
         });
       }
 
