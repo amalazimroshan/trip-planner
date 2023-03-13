@@ -1,0 +1,17 @@
+.map {
+  height: 70vh;
+}
+.marker {
+  background-image: url("https://i.imgur.com/oz3r3Wq.png");
+  background-size: cover;
+  width: 22px;
+  height: 22px;
+  background-color: yellow;
+  border-radius: 11px;
+  border: solid 3px darkslategray;
+}
+.marker-delivery {
+  background-color: red;
+  height: 21px;
+  width: 21px;
+}

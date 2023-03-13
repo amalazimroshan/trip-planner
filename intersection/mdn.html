@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      main {
+        background-color: aqua;
+        padding: 1em;
+        margin: 0 auto;
+        overflow-x: scroll;
+        display: flex;
+        flex-direction: row;
+        scroll-snap-type: x mandatory;
+      }
+      div {
+        position: relative;
+        background-color: blanchedalmond;
+        height: 200px;
+        scroll-snap-align: center;
+        margin-right: 0.4em;
+        min-width: calc(100% - 30px);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div value="1">div 1</div>
+      <div value="2">div 2</div>
+      <div value="3">div 3</div>
+      <div value="4">div 4</div>
+      <div value="5">div 5</div>
+      <div id="box" value="6">div 6</div>
+      <div value="7">div 7</div>
+      <div value="8">div 8</div>
+      <div value="9">div 9</div>
+      <div value="10">div 10</div>
+    </main>
+    <script>
+      let divs = document.querySelectorAll("div");
+
+      const options = {
+        root: document.getElementsByTagName("main")[0],
+        rootMargin: "5px",
+        threshold: 1,
+      };
+      const observer = new IntersectionObserver(callback, options);
+      function callback(entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            console.log(entry.target.textContent);
+          }
+        });
+      }
+
+      divs.forEach((item) => {
+        observer.observe(item);
+      });
+    </script>
+  </body>
+</html>

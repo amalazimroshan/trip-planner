@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.15.0/maps/maps.css"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <script>
+      (function () {
+        window.SS = window.SS || {};
+        SS.Require = function (callback) {
+          if (typeof callback === "function") {
+            if (window.SS && SS.EventTrack) {
+              callback();
+            } else {
+              var siteSpect = document.getElementById("siteSpectLibraries");
+              var head = document.getElementsByTagName("head")[0];
+              if (siteSpect === null && typeof head !== "undefined") {
+                siteSpect = document.createElement("script");
+                siteSpect.type = "text/javascript";
+                siteSpect.src =
+                  "/__ssobj/core.js+ssdomvar.js+generic-adapter.js";
+                siteSpect.async = true;
+                siteSpect.id = "siteSpectLibraries";
+                head.appendChild(siteSpect);
+              }
+              if (window.addEventListener) {
+                siteSpect.addEventListener("load", callback, false);
+              } else {
+                siteSpect.attachEvent("onload", callback, false);
+              }
+            }
+          }
+        };
+      })();
+    </script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <section id="form-section">
+        <div class="mb-3">
+          <label for="origin" class="form-label">Origin</label>
+          <input
+            type="text"
+            name=""
+            id="lat-origin"
+            class="form-control"
+            placeholder="Enter Latitude"
+          />
+          <input
+            type="text"
+            name=""
+            id="long-origin"
+            class="form-control"
+            placeholder="Enter Longitude"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="destination" class="form-label">Destination</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lat-dest"
+            placeholder="Enter Latitide"
+          />
+          <input
+            type="text"
+            class="form-control"
+            id="long-dest"
+            placeholder="Enter Longitude"
+          />
+        </div>
+        <button id="submit-btn">submit</button>
+      </section>
+
+      <setion class="map-area">
+        <div id="map" class="map"></div>
+        <div id="time"></div>
+        <div id="select-input-div"></div>
+      </setion>
+    </div>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.15.0/maps/maps-web.min.js"></script>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.15.0/services/services-web.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
